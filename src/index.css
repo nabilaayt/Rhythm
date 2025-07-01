@@ -1,2 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=Marcellus&family=Patrick+Hand+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+/* CUSTOM */
+@theme{
+  --color-primary: #702C29;
+  --color-secondary: #2F2F2F;
+  --bg-primary: #060201;
+  --bg-secondary: #141414;
+  --font-color-primary: #FFFFFF;
+  --font-color-secondary: #DDDDDD;
+}
+
+/* THEME */
+.light-theme{
+  background-color: #F8F8F8;
+  color: #060201;
+}
+
+.dark-theme{
+  background-color: #060201;
+  color: #F8F8F8;
+}
