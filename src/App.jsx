@@ -1,15 +1,19 @@
 import { useState } from "react";
+import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
+import TopBar from "./components/Topbar";
 
 
 function App() {
-  // const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-          {/* <header className="p-32 h-40">Rhythm</header> */}
+      <div className="flex">
           <Sidebar/>
+          <div className="flex-1 flex flex-col">
+            <TopBar/>
+            <Home/>
+          </div>
       </div>
     </>
   )

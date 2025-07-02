@@ -18,11 +18,11 @@ const Sidebar = () => {
     }
 
     return(
-        <div className="w-2xs bg-custom-secondary absolute h-screen p-14 pt-15 transition-all duration-1000">
-          <header className="h-20 font-heading text-3xl flex justify-center pe-2 text-font-color1">Rhythm</header>
-          <h1 className="text-1xl h-14 text-font-color1 ">Menu</h1>
+        <section id="sideBar" className="w-2xs bg-custom-secondary absolute h-screen p-14 pt-10 transition-all duration-1000">
+          <h1 className="h-20 font-heading text-3xl flex justify-center pe-2 text-font-color1">Rhythm</h1>
+          <h1 className="text-1xl h-14 text-font-color1">Menu</h1>
             <ul className="p-0">
-                <li className="list-none block h-8 rounded-md mb-2 relative">
+                <li className="list-none block h-10 rounded-md mb-2 relative">
                     <a 
                         href="/"
                         onClick={(e) =>{
@@ -36,11 +36,11 @@ const Sidebar = () => {
                             <img src={activeItem === "Home" ? homeActive : homeDefault } className="w-5 h-5 mr-3"/>
                             Home
                             {activeItem === "Home" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-2 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
-                    <li className="list-none block h-8 rounded-md mb-2 relative">
+                    <li className="list-none block h-10 rounded-md mb-2 relative">
                     <a 
                         href="/"
                         onClick={(e) =>{
@@ -54,11 +54,11 @@ const Sidebar = () => {
                             <img src={activeItem === "Albums" ? albumsActive : albumsDefault } className="w-5 h-5 mr-3"/>
                             Albums
                             {activeItem === "Albums" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-2 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
-                <li className="list-none block h-8 rounded-md mb-2 relative">
+                <li className="list-none block h-10 rounded-md mb-2 relative">
                     <a 
                         href="/"
                         onClick={(e) =>{
@@ -72,11 +72,11 @@ const Sidebar = () => {
                             <img src={activeItem === "Song" ? songActive : songDefault } className="w-5 h-5 mr-3"/>
                             Song
                             {activeItem === "Song" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-2 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
-                    <li className="list-none block h-8 rounded-md mb-2 relative">
+                    <li className="list-none block h-10 rounded-md mb-2 relative">
                     <a 
                         href="/"
                         onClick={(e) =>{
@@ -90,12 +90,12 @@ const Sidebar = () => {
                             <img src={activeItem === "Artist" ? artistActive : artistDefault } className="w-5 h-5 mr-3"/>
                             Artist
                             {activeItem === "Artist" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-2 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
             </ul>
-        </div>
+        </section>
     );
 };
 
