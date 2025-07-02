@@ -36,7 +36,7 @@ const Sidebar = () => {
                             <img src={activeItem === "Home" ? homeActive : homeDefault } className="w-5 h-5 mr-3"/>
                             Home
                             {activeItem === "Home" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-amber-950 rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
@@ -54,7 +54,7 @@ const Sidebar = () => {
                             <img src={activeItem === "Albums" ? albumsActive : albumsDefault } className="w-5 h-5 mr-3"/>
                             Albums
                             {activeItem === "Albums" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-amber-950 rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
@@ -72,7 +72,7 @@ const Sidebar = () => {
                             <img src={activeItem === "Song" ? songActive : songDefault } className="w-5 h-5 mr-3"/>
                             Song
                             {activeItem === "Song" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-amber-950 rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>
@@ -90,7 +90,7 @@ const Sidebar = () => {
                             <img src={activeItem === "Artist" ? artistActive : artistDefault } className="w-5 h-5 mr-3"/>
                             Artist
                             {activeItem === "Artist" && (
-                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-amber-950 rounded-l-sm"></div>
+                                <div className="absolute left-56 top-0 bottom-0 w-1.5 bg-third rounded-l-sm"></div>
                             )}
                     </a>
                 </li>

@@ -24,6 +24,7 @@ body{
 .bg-custom-primary { background-color: var(--bg-primary); }
 .bg-custom-secondary { background-color: var(--bg-secondary); }
 .bg-secondary { background-color: var(--color-secondary); }
+.bg-third { background-color: var(--color-primary); }
 .text-primary { color: var(--color-primary); }
 .text-secondary { color: var(--color-secondary); }
 .text-font-color1 { color: var(--font-color1); }
