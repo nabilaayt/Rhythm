@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-          <header></header>
+          {/* <header className="p-32 h-40">Rhythm</header> */}
           <Sidebar/>
       </div>
     </>
