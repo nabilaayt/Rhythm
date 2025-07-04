@@ -10,7 +10,7 @@ const TopBar = () => {
 
     return(
         <>
-            <section id="topBar" className="ml-64 flex items-center justify-between px-20 py-6">
+            <section id="topBar" className="flex items-center justify-between px-20 py-6">
                 <div className="flex items-center gap-5">
                     <button className="rounded-full flex items-center justify-center w-14 h-14 bg-custom-secondary">
                         <img src={ArrowLeft} className="w-5 h-5" />
@@ -27,9 +27,9 @@ const TopBar = () => {
 
                 <div className="flex items-center gap-2">
                     <img src={Notif} className="w-5 h-5 mr-3" />
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-2">
                         <img src={catProfile} className="rounded-full w-14" />
-                        <p className="font-medium text-1xl">Natuna</p>
+                        <p className="font-medium text-1xl text-font-color1">Natuna</p>
                     </div>
                 </div>
             </section>

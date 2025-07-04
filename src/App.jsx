@@ -10,7 +10,7 @@ function App() {
     <>
       <div className="flex">
           <Sidebar/>
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col bg-custom-primary">
             <TopBar/>
             <Home/>
           </div>
