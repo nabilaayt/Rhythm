@@ -1,11 +1,3 @@
-
-// ICONS
-import searchIcon from "../assets/icons/Search.png";
-import Notif from "../assets/icons/Notification.png";
-import catProfile from "../assets/kucing.jpeg";
-import ArrowLeft from "../assets/icons/ArrowLeftDefault.png";
-import ArrowRight from "../assets/icons/ArrowRightActive.png";
-
 const TopBar = () => {
 
     return(
@@ -13,22 +5,22 @@ const TopBar = () => {
             <section id="topBar" className="flex items-center justify-between px-20 py-6">
                 <div className="flex items-center gap-5">
                     <button className="rounded-full flex items-center justify-center w-14 h-14 bg-custom-secondary">
-                        <img src={ArrowLeft} className="w-5 h-5" />
+                        <img src="/img/icons/ArrowLeftDefault.png" className="w-5 h-5" />
                     </button>
                     <button className="rounded-full flex items-center justify-center w-14 h-14 bg-custom-secondary">
-                        <img src={ArrowRight} className="w-5 h-5" />
+                        <img src="/img/icons/ArrowRightActive.png" className="w-5 h-5" />
                     </button>
                 </div>
 
-                <div className="flex bg-custom-secondary p-5 px-5 w-full max-w-md h-14 rounded-2xl items-center">
-                    <img src={searchIcon} className="w-5 h-5 mr-3" alt="icon search" />
-                    <p className="text-font-color2">Type here to search</p>
+                <div className="flex bg-custom-secondary p-4 px-5 w-full max-w-md rounded-2xl items-center">
+                    <img src="/img/icons/Search.png" className="w-5 h-5" alt="icon search" />
+                    <input type="text" placeholder="Type here to search" className="text-font-color2 flex-1 h-full rounded-full outline-none border-none px-5" />
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <img src={Notif} className="w-5 h-5 mr-3" />
+                    <img src="/img/icons/Notification.png" className="w-5 h-5 mr-3" />
                     <div className="flex items-center gap-2">
-                        <img src={catProfile} className="rounded-full w-14" />
+                        <img src="/img/kucing.jpeg" className="rounded-full w-14" />
                         <p className="font-medium text-1xl text-font-color1">Natuna</p>
                     </div>
                 </div>

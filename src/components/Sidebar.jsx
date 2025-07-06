@@ -1,15 +1,5 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
-// ICONS
-import homeActive from "../assets/icons/homeActive.png";
-import homeDefault from "../assets/icons/HomeDefault.png";
-import albumsActive from "../assets/icons/AlbumsActive.png";
-import albumsDefault from "../assets/icons/AlbumsDefault.png";
-import songActive from "../assets/icons/SongActive.png";
-import songDefault from "../assets/icons/SongDefault.png";
-import artistActive from "../assets/icons/ArtistActive.png";
-import artistDefault from "../assets/icons/ArtistDefault.png";
 import { TbLayoutSidebarLeftCollapse, TbLayoutSidebarLeftExpand } from "react-icons/tb";
 
 const Sidebar = () => {
@@ -31,7 +21,7 @@ const Sidebar = () => {
                     <NavLink to={"/"} className= {({ isActive }) => `flex items-center h-full rounded-md transition-all duration-200 ${isActive ? "text-primary font-semibold" : "text-font-color2 hover:text-font-color1"}`}>
                         {({ isActive }) => (
                             <div className="relative flex items-center w-full gap-3">
-                                <img src={isActive ? homeActive : homeDefault} className="w-5 h-5" alt="home"/>
+                                <img src={isActive ? "img/icons/HomeActive.png" : "img/icons/HomeDefault.png"} className="w-5 h-5" alt="home"/>
                                 <span className={`${!open && "hidden"}`}>Home</span>
                                 {isActive && open && (
                                     <div className={`absolute top-0 bottom-0 right-57 w-1 rounded-e-lg bg-third transition-all duration-200 ${!open && "left-0"}`}></div>
@@ -40,12 +30,11 @@ const Sidebar = () => {
                         )}
                     </NavLink>
                 </li>
-
                 <li className="list-none block h-10 rounded-md mb-2 relative">
                     <NavLink to={"/albums"} className= {({ isActive }) => `flex items-center h-full rounded-md transition-all duration-200 ${isActive ? "text-primary font-semibold" : "text-font-color2 hover:text-font-color1"}`}>
                         {({ isActive }) => (
                             <div className="relative flex items-center w-full gap-3">
-                                <img src={isActive ? albumsActive : albumsDefault} className="w-5 h-5" alt="albums"/>
+                                <img src={isActive ? "img/icons/AlbumsActive.png" : "img/icons/AlbumsDefault.png"} className="w-5 h-5" alt="albums"/>
                                 <span className={`${!open && "hidden"}`}>Albums</span>
                                 {isActive && open && (
                                     <div className={`absolute top-0 bottom-0 right-57 w-1 rounded-e-lg bg-third transition-all duration-200 ${!open && "left-0"}`}></div>
@@ -58,7 +47,7 @@ const Sidebar = () => {
                     <NavLink to={"/songs"} className= {({ isActive }) => `flex items-center h-full rounded-md transition-all duration-200 ${isActive ? "text-primary font-semibold" : "text-font-color2 hover:text-font-color1"}`}>
                         {({ isActive }) => (
                             <div className="relative flex items-center w-full gap-3">
-                                <img src={isActive ? songActive : songDefault} className="w-5 h-5" alt="song"/>
+                                <img src={isActive ? "img/icons/SongActive.png" : "img/icons/SongDefault.png"} className="w-5 h-5" alt="song"/>
                                 <span className={`${!open && "hidden"}`}>Song</span>
                                 {isActive && open && (
                                     <div className={`absolute top-0 bottom-0 right-57 w-1 rounded-e-lg bg-third transition-all duration-200 ${!open && "left-0"}`}></div>
@@ -67,11 +56,11 @@ const Sidebar = () => {
                         )}
                     </NavLink>
                 </li>
-                    <li className="list-none block h-10 rounded-md mb-2 relative">
+                <li className="list-none block h-10 rounded-md mb-2 relative">
                     <NavLink to={"/artists"} className= {({ isActive }) => `flex items-center h-full rounded-md transition-all duration-200 ${isActive ? "text-primary font-semibold" : "text-font-color2 hover:text-font-color1"}`}>
                         {({ isActive }) => (
                             <div className="relative flex items-center w-full gap-3">
-                                <img src={isActive ? artistActive : artistDefault} className="w-5 h-5" alt="artist"/>
+                                <img src={isActive ? "img/icons/ArtistActive.png" : "img/icons/ArtistDefault.png"} className="w-5 h-5" alt="artist"/>
                                 <span className={`${!open && "hidden"}`}>Artist</span>
                                 {isActive && open && (
                                     <div className={`absolute top-0 bottom-0 right-57 w-1 rounded-e-lg bg-third transition-all duration-200 ${!open && "left-0"}`}></div>

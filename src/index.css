@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @font-face{
   font-family: Monument;
-  src: url("../src/assets/fonts/MonumentExtended-Reguler.otf");
+  src: url("/fonts/MonumentExtended-Reguler.otf");
 }
 
 body{
@@ -31,14 +31,3 @@ body{
 .text-font-color2 { color: var(--font-color2); }
 .border-primary { border-color: var(--color-primary); }
 .font-heading { font-family: var(--font-monument); }
-
-/* THEME */
-.light-theme{
-  background-color: #F8F8F8;
-  color: #060201;
-}
-
-.dark-theme{
-  background-color: #060201;
-  color: #F8F8F8;
-}
