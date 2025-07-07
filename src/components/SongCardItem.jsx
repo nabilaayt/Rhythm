@@ -4,7 +4,7 @@ const SongCardItem = (props) => {
     return (
         <div className="flex items-center justify-between p-4 mb-4">
             <div className="flex items-center gap-4">
-                <img src={cover} alt={title} className="w-15 h-15"/>
+                <img src={cover} alt={title} className="w-20 h-15"/>
                 <div className="flex flex-col gap-4">
                     <h2 className="text-2xl text-font-color1 font-medium">{title}</h2>
                     <p className="text-1xl text-font-color1">{artist}</p>
