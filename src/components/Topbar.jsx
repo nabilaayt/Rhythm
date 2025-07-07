@@ -1,4 +1,8 @@
+import { useState, useEffect } from "react";
+
 const TopBar = () => {
+    const [ searchInput, setSearchInput] = useState("");
+
 
     return(
         <>
@@ -14,7 +18,17 @@ const TopBar = () => {
 
                 <div className="flex bg-custom-secondary p-4 px-5 w-full max-w-md rounded-2xl items-center">
                     <img src="/img/icons/Search.png" className="w-5 h-5" alt="icon search" />
-                    <input type="text" placeholder="Type here to search" className="text-font-color2 flex-1 h-full rounded-full outline-none border-none px-5" />
+                    <input 
+                        type="input" 
+                        placeholder="Type here to search"
+                        onKeyDown={e =>{   // event handler yg akan dipanggil saat tombol keyboard ditekan
+                            if(e.key == "Enter"){
+                                console.log("Pressed Enter");
+                            }
+                        }} 
+                        onChange={e => setSearchInput(e.target.value)} // mengambil nilai yg diketik(e.target.value) kemudian menyimpannya ke dalam searchInput melalui setSearchInput
+                        className="text-font-color2 flex-1 h-full rounded-full outline-none border-none px-5" 
+                    />
                 </div>
 
                 <div className="flex items-center gap-2">
