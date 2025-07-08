@@ -14,3 +14,17 @@ export const getAccessToken = async () => {
     const data = await response.json();
     return data.access_token;
 };
+
+export const searchArtist = async (searchInput, accessToken) => {
+    const artistParameters = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        }
+    }
+
+    const response = await fetch("https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist", artistParameters);
+    const data = await response.json();
+    return data.artists?.items; // mengembalikan array artist hasil search dari spotify
+};

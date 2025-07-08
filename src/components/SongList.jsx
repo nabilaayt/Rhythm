@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SongCardItem from "./SongCardItem";
 import { getAccessToken } from "../services/api";
 
-const SongList = ({ searchInput }) => {
+const SongList = () => {
     const [accessToken, setAccessToken] = useState("");
 
     useEffect(() => {
@@ -19,7 +19,6 @@ const SongList = ({ searchInput }) => {
 
         fetchToken();
     }, []);
-
 
     return(
         <section id="songList" className="mx-2 flex flex-col">

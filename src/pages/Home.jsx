@@ -1,6 +1,6 @@
 import SongList from "../components/SongList";
 
-const Home = ({ searchInput }) => {
+const Home = () => {
 
     return(
         <section id="home" className="relative w-full h-[400px] px-10">
@@ -16,7 +16,7 @@ const Home = ({ searchInput }) => {
 
             <div>
                 <h2 className="text-font-color1 text-2xl font-semibold mb-5">Today’s biggest hits</h2>
-                <SongList searchInput={searchInput}/>
+                <SongList/>
             </div>
 
             <div>
