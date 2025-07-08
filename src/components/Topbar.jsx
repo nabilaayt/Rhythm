@@ -13,7 +13,7 @@ const TopBar = () => {
             try {
                 const token = await getAccessToken();
                 setAccessToken(token);
-                console.log(token);
+                // console.log(token);
             } catch(error) {
                 console.log(error.message);
             }
@@ -32,7 +32,7 @@ const TopBar = () => {
             console.log("Search for " + searchInput);
             const artistData = await searchArtist(searchInput, accessToken);
             console.log(artistData);
-            // setSearchResult(artistData ? [artistData] : []); // optional: kalau mau ditampilkan
+            // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
         } catch (error) {
             console.log(error.message);
         }
