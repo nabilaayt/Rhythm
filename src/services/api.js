@@ -22,9 +22,24 @@ export const searchArtist = async (searchInput, accessToken) => {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + accessToken
         }
-    }
+    };
 
     const response = await fetch("https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist", artistParameters);
     const data = await response.json();
-    return data.artists?.items; // mengembalikan array artist hasil search dari spotify
+    return data.artists?.items[0].id; // mengembalikan array artist index ke-0 hasil search dari spotify
 };
+
+export const albumsArtist = async (artistId, accessToken) => {
+    const albumsParameters = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        }
+    };
+    
+    const url = `https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album&market=US&limit=50`;
+    const response = await fetch(url, albumsParameters);
+    const data = await response.json();
+    return data.items;
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SongList from "../components/SongList";
-import { getAccessToken, searchArtist } from "../services/api";
+import { getAccessToken, searchArtist, albumsArtist } from "../services/api";
 
 const TopBar = () => {
     const [accessToken, setAccessToken] = useState("");
@@ -30,8 +30,10 @@ const TopBar = () => {
 
         try {
             console.log("Search for " + searchInput);
-            const artistData = await searchArtist(searchInput, accessToken);
-            console.log(artistData);
+            const artistID = await searchArtist(searchInput, accessToken);
+            console.log(artistID);
+            const albums = await albumsArtist(artistID, accessToken);
+            console.log(albums);
             // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
         } catch (error) {
             console.log(error.message);
@@ -42,7 +44,6 @@ const TopBar = () => {
         const timer = setTimeout(search, 500); 
         return () => clearTimeout(timer);
     }, [searchInput, accessToken]);
-
 
 
     return(
