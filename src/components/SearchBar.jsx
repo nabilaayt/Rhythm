@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { searchArtist, albumsArtist } from "../services/api";
+import { TbX } from "react-icons/tb";
 
 const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
     useEffect(() => {
@@ -20,17 +21,22 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
             console.log("Search for " + searchInput);
             const artistID = await searchArtist(searchInput, accessToken);
             console.log(artistID);
-            const albums = await albumsArtist(artistID, accessToken);
-            console.log(albums);
-            setAlbums(albums);
+            const albumsData = await albumsArtist(artistID, accessToken);
+            console.log(albumsData);
+            setAlbums(albumsData);
             // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
         } catch (error) {
             console.log(error.message);
         }
     };
 
+    const handleClear = () => {
+        setSearchInput("");
+        setAlbums([]);
+    };
+
     return(
-        <div id="searchBar" className="flex bg-custom-secondary p-4 px-5 w-full max-w-md rounded-2xl items-center">
+        <div id="searchBar" className="relative flex bg-custom-secondary p-4 px-5 w-full max-w-md rounded-2xl items-center">
             <img src="/img/icons/Search.png" className="w-5 h-5" alt="icon search" />
                 <input 
                     type="input" 
@@ -42,10 +48,18 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
                             handleSearch();
                         }
                     }} 
-                    className="text-font-color2 flex-1 h-full rounded-full outline-none border-none px-5" 
+                    className={`flex-1 h-full rounded-full outline-none border-none px-5 transition duration-300 ${searchInput ? "text-font-color1" : "text-font-color2"}`}
                 />
+                {searchInput && (
+                    <button
+                        onClick={handleClear}
+                        className="absolute right-4 text-font-color2 hover:text-font-color1 cursor-pointer"
+                    >
+                        <TbX size={24} />
+                    </button>
+                )}
         </div>
     );
-}
+};
 
 export default SearchBar;

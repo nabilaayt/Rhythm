@@ -1,15 +1,12 @@
-const AlbumCardItem = ({ cover, title, artist, realeseDate }) => {
+const AlbumCardItem = ({ cover, title, artist }) => {
 
     return (
-        <div className="flex items-center justify-between p-4 mb-4">
-            <div className="flex items-center gap-4">
-                <img src={cover} alt={title} className="w-20 h-15"/>
-                <div className="flex flex-col gap-4">
-                    <h2 className="text-2xl text-font-color1 font-medium">{title}</h2>
-                    <p className="text-1xl text-font-color1">{artist}</p>
-                </div>
+        <div className="flex flex-col p-4 mb-2 rounded-lg hover:bg-neutral-900 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
+            <img src={cover} alt={title} className="w-full h-auto object-contain rounded-md mb-3"/>
+            <div className="flex flex-col gap-2">
+                <h2 className="text-1xl text-font-color1 font-semibold break-words">{title}</h2>
+                <p className="text-md text-font-color1">{artist}</p>
             </div>
-            <p className=" w-1/3 text-1xl text-font-color1">{realeseDate}</p>
         </div>
     );
 };
