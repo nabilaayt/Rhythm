@@ -1,5 +1,4 @@
-const SongCardItem = (props) => {
-    const { cover, title, artist, album, duration } = props; //komponen dgn props agar bisa dipakai berulangkali
+const AlbumCardItem = ({ cover, title, artist, realeseDate }) => {
 
     return (
         <div className="flex items-center justify-between p-4 mb-4">
@@ -10,10 +9,9 @@ const SongCardItem = (props) => {
                     <p className="text-1xl text-font-color1">{artist}</p>
                 </div>
             </div>
-            <p className=" w-1/3 text-1xl text-font-color1">{album}</p>
-            <p className="text-1xl text-font-color1">{duration}</p>
+            <p className=" w-1/3 text-1xl text-font-color1">{realeseDate}</p>
         </div>
     );
 };
 
-export default SongCardItem;
+export default AlbumCardItem;

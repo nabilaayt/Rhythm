@@ -1,4 +1,4 @@
-import SongList from "../components/SongList";
+import TrackList from "../components/TrackList";
 
 const Home = () => {
 
@@ -16,7 +16,7 @@ const Home = () => {
 
             <div>
                 <h2 className="text-font-color1 text-2xl font-semibold mb-5">Today’s biggest hits</h2>
-                <SongList/>
+                <TrackList/>
             </div>
 
             <div>

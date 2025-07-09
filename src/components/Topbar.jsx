@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import SongList from "../components/SongList";
-import { getAccessToken, searchArtist, albumsArtist } from "../services/api";
+import TrackList from "./TrackList";
+import SearchBar from "./SearchBar";
+import AlbumList from "./AlbumList";
+import { getAccessToken } from "../services/api";
 
 const TopBar = () => {
     const [accessToken, setAccessToken] = useState("");
     const [searchInput, setSearchInput] = useState("");
-    const [searchResult, setSearchResult] = useState([]);
+    const [albums, setAlbums] = useState([]);
 
     // API Access Token
     useEffect(() => {
@@ -13,7 +15,6 @@ const TopBar = () => {
             try {
                 const token = await getAccessToken();
                 setAccessToken(token);
-                // console.log(token);
             } catch(error) {
                 console.log(error.message);
             }
@@ -21,29 +22,6 @@ const TopBar = () => {
 
         fetchToken();
     }, []);
-
-    const search = async () => {
-        if (!searchInput.trim() || !accessToken) {
-            setSearchResult([]);
-            return;
-        }
-
-        try {
-            console.log("Search for " + searchInput);
-            const artistID = await searchArtist(searchInput, accessToken);
-            console.log(artistID);
-            const albums = await albumsArtist(artistID, accessToken);
-            console.log(albums);
-            // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-
-    useEffect(() => {
-        const timer = setTimeout(search, 500); 
-        return () => clearTimeout(timer);
-    }, [searchInput, accessToken]);
 
 
     return(
@@ -57,20 +35,12 @@ const TopBar = () => {
                 </button>
             </div> */}
 
-            <div className="flex bg-custom-secondary p-4 px-5 w-full max-w-md rounded-2xl items-center">
-                <img src="/img/icons/Search.png" className="w-5 h-5" alt="icon search" />
-                <input 
-                    type="input" 
-                    placeholder="Type here to search"
-                    onKeyDown={e =>{   // event handler yg akan dipanggil saat tombol keyboard ditekan
-                        if(e.key == "Enter"){
-                            search();
-                        }
-                    }} 
-                    onChange={e => setSearchInput(e.target.value)} // mengambil nilai yg diketik(e.target.value) kemudian menyimpannya ke dalam searchInput melalui setSearchInput
-                    className="text-font-color2 flex-1 h-full rounded-full outline-none border-none px-5" 
-                />
-            </div>
+            <SearchBar
+                accessToken={accessToken}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                setAlbums={setAlbums}
+            />
 
             <div className="flex items-center gap-2">
                 <img src="/img/icons/Notification.png" className="w-5 h-5 mr-3" />
@@ -78,6 +48,20 @@ const TopBar = () => {
                     <img src="/img/kucing.jpeg" className="rounded-full w-14" />
                     <p className="font-medium text-1xl text-font-color1">Natuna</p>
                 </div>
+            </div>
+
+            <div className="">
+                {albums.length > 0 && (
+                    <AlbumList
+                        albums={albums}
+                    />
+                )}
+
+                {/* {tracks.length > 0 && (
+                    <TrackList
+                        tracks={tracks}
+                    />
+                )} */}
             </div>
         </section>
     );
