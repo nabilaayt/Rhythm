@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
 import AlbumList from "./components/AlbumList";
+import TrackList from "./components/TrackList";
 import { getAccessToken } from "./services/api";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [track, setTrack] = useState([]);
   const [albums, setAlbums] = useState([]);
 
   // API Access Token
@@ -25,6 +27,10 @@ function App() {
   fetchToken();
   }, []);
 
+  useEffect(() => {
+    console.log(track);
+  }, [track]);
+
   return (
     <div className="flex bg-custom-secondary">
       <Sidebar/>
@@ -34,10 +40,14 @@ function App() {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
             setAlbums={setAlbums}
+            setTrack={setTrack}
           />
             <div className="px-10 mt-4">
               {searchInput.trim() !== "" && albums.length > 0 ? (
-                <AlbumList albums={albums} /> // Tampilkan hasil pencarian
+                <>
+                  <TrackList track={track} />
+                  <AlbumList albums={albums} />
+                </>
               ) : (
 
                 // Jika tidak melakukan pencarian, tampilkan halaman Home atau Route lain

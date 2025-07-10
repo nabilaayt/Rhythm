@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { searchArtist, albumsArtist } from "../services/api";
+import { searchArtist, albumsArtist, trackArtist } from "../services/api";
 import { TbX } from "react-icons/tb";
 
-const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
+const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTrack }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             handleSearch();
@@ -14,6 +14,7 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
     const handleSearch = async () => {
         if (!searchInput.trim() || !accessToken) {
             setAlbums([]);
+            setTrack([]);
             return;
         }
 
@@ -24,6 +25,10 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
             const albumsData = await albumsArtist(artistID, accessToken);
             console.log(albumsData);
             setAlbums(albumsData);
+            const tracksData = await trackArtist(artistID, accessToken);
+            console.log(tracksData);
+            setTrack(tracksData);
+            
             // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
         } catch (error) {
             console.log(error.message);
@@ -33,6 +38,7 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
     const handleClear = () => {
         setSearchInput("");
         setAlbums([]);
+        setTrack([]);
     };
 
     return(

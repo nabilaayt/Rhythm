@@ -2,7 +2,7 @@ import TrackList from "./TrackList";
 import SearchBar from "./SearchBar";
 import AlbumList from "./AlbumList";
 
-const TopBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
+const TopBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTrack }) => {
 
     return(
         <section id="topBar" className="flex items-center justify-between px-20 py-6">
@@ -19,6 +19,7 @@ const TopBar = ({ accessToken, searchInput, setSearchInput, setAlbums }) => {
                 searchInput={searchInput}
                 setSearchInput={setSearchInput}
                 setAlbums={setAlbums}
+                setTrack={setTrack}
             />
             <div className="flex items-center gap-2">
                 <img src="/img/icons/Notification.png" className="w-5 h-5 mr-3" />

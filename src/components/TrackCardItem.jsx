@@ -1,16 +1,20 @@
 const TrackCardItem = ({ cover, title, artist, album, duration }) => { //komponen dgn props agar bisa dipakai berulangkali
 
     return (
-        <div className="flex items-center justify-between p-4 mb-4">
-            <div className="flex items-center gap-4">
-                <img src={cover} alt={title} className="w-20 h-15"/>
-                <div className="flex flex-col gap-4">
-                    <h2 className="text-2xl text-font-color1 font-medium">{title}</h2>
-                    <p className="text-1xl text-font-color1">{artist}</p>
-                </div>
+        <div className="flex items-center justify-between gap-4 p-4 py-3 mb-2 rounded-md hover:bg-neutral-900 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
+            <div className="w-16 h-16 min-w-[64px]">
+                <img src={cover} alt={title} className="w-full h-auto object-contain rounded-md"/>
             </div>
-            <p className=" w-1/3 text-1xl text-font-color1">{album}</p>
-            <p className="text-1xl text-font-color1">{duration}</p>
+            <div className="flex flex-col flex-[2] min-w-0">
+                <h2 className="text-base text-font-color1 font-semibold truncate">{title}</h2>
+                <p className="text-sm text-font-color1 truncate">{artist}</p>
+            </div>
+            <div className="flex-2 text-sm text-font-color1 text-left hidden md:block">
+                <p className="truncate">{album}</p>
+            </div>
+            <div className="w-20 text-sm text-font-color1 text-right flex-shrink-0">
+                {duration}
+            </div>
         </div>
     );
 };

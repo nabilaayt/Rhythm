@@ -1,19 +1,25 @@
 import TrackCardItem from "./TrackCardItem";
 // import * as api from "../services/api";
 
-const TrackList = ({ albums }) => {
+const TrackList = ({ track }) => {
+
+    const duration = (millis) => {
+        const minutes = Math.floor(millis / 60000);
+        const seconds = Math.floor((millis % 60000) / 1000);
+        return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
 
     return(
         <section id="trackList" className="mx-2 flex flex-col">
-            <div className="flex flex-row">
-                {Array.isArray(albums) && albums.map((album, index) => (
+            <div className="flex flex-col">
+                {Array.isArray(track) && track.map((track, index) => (
                     <TrackCardItem
                         key={index}
-                        cover={album.images[0]?.url}
-                        title={album.name}
-                        artist={album.artist[0]?.name}
-                        album={album.release_date}
-                        duration={""}
+                        cover={track.album?.images[0]?.url}
+                        title={track.name}
+                        artist={track.artists[0]?.name}
+                        album={track.album?.name}
+                        duration={duration(track.duration_ms)}
                     />
                 ))}
             </div>
