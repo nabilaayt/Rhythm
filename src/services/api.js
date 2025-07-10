@@ -46,6 +46,21 @@ export const searchArtist = async (searchInput, accessToken) => {
     return data.artists?.items[0].id; // mengembalikan array artist index ke-0 hasil search dari spotify
 };
 
+// Track dari Artist
+export const searchTrack = async (searchInput, accessToken) => {
+    const searchParams = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        }           
+    };
+
+    const response = await fetch("https://api.spotify.com/v1/search?q=" + searchInput + "&type=track&market=US&limit=50", searchParams);
+    const data = await response.json();
+    return data.tracks?.items;
+};
+
 // Daftar albums dari artist
 export const albumsArtist = async (artistId, accessToken) => {
     const albumsParameters = {

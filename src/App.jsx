@@ -42,8 +42,8 @@ function App() {
             setAlbums={setAlbums}
             setTrack={setTrack}
           />
-            <div className="px-10 mt-4">
-              {searchInput.trim() !== "" && albums.length > 0 ? (
+            <div className="px-16 mt-4">
+              {searchInput.trim() !== "" && (albums.length > 0 || track.length > 0) ? (
                 <>
                   <TrackList track={track} />
                   <AlbumList albums={albums} />
@@ -52,7 +52,7 @@ function App() {
 
                 // Jika tidak melakukan pencarian, tampilkan halaman Home atau Route lain
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/" element={<Home accessToken={accessToken}/>} />
                   {/* <Route path="/albums" element={<Albums />} />
                   <Route path="/songs" element={<Songs />} />
                   <Route path="/artists" element={<Artists />} /> */}

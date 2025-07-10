@@ -1,6 +1,4 @@
-import TrackList from "./TrackList";
 import SearchBar from "./SearchBar";
-import AlbumList from "./AlbumList";
 
 const TopBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTrack }) => {
 

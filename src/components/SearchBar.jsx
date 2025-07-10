@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { searchArtist, albumsArtist, trackArtist } from "../services/api";
+import { searchArtist, albumsArtist, trackArtist, searchTrack } from "../services/api";
 import { TbX } from "react-icons/tb";
 
 const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTrack }) => {
@@ -20,21 +20,29 @@ const SearchBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTra
 
         try {
             console.log("Search for " + searchInput);
-            const artistID = await searchArtist(searchInput, accessToken);
-            console.log(artistID);
-            const albumsData = await albumsArtist(artistID, accessToken);
-            console.log(albumsData);
-            setAlbums(albumsData);
-            const tracksData = await trackArtist(artistID, accessToken);
-            console.log(tracksData);
-            setTrack(tracksData);
             
-            // setSearchResult(artistData ? [artistData] : []); // optional kalau mau ditampilkan
+            const trackData = await searchTrack(searchInput, accessToken);
+            const artistID = await searchArtist(searchInput, accessToken);
+            console.log(trackData);
+            console.log(artistID);
+
+            if (artistID) {
+                const albumsData = await albumsArtist(artistID, accessToken);
+                const tracksData = await trackArtist(artistID, accessToken);
+                const allTracks = [...(trackData || []), ...(tracksData || [])];
+                setAlbums(albumsData);
+                setTrack(allTracks);
+            } else {
+                const trackData = await searchTrack(searchInput, accessToken);
+                setAlbums([]);
+                setTrack(trackData);
+            }
         } catch (error) {
             console.log(error.message);
         }
     };
 
+    // Handle
     const handleClear = () => {
         setSearchInput("");
         setAlbums([]);

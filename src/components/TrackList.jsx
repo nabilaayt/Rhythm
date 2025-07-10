@@ -1,5 +1,4 @@
 import TrackCardItem from "./TrackCardItem";
-// import * as api from "../services/api";
 
 const TrackList = ({ track }) => {
 
@@ -10,7 +9,7 @@ const TrackList = ({ track }) => {
     }
 
     return(
-        <section id="trackList" className="mx-2 flex flex-col">
+        <section id="trackList" className="flex flex-col">
             <div className="flex flex-col">
                 {Array.isArray(track) && track.map((track, index) => (
                     <TrackCardItem
