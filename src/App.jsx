@@ -1,11 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
 import AlbumList from "./components/AlbumList";
 import TrackList from "./components/TrackList";
 import { getAccessToken } from "./services/api";
+
+// Pages
+import Home from "./pages/Home";
+import Albums from "./pages/Albums";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
@@ -53,8 +56,8 @@ function App() {
                 // Jika tidak melakukan pencarian, tampilkan halaman Home atau Route lain
                 <Routes>
                   <Route path="/" element={<Home accessToken={accessToken}/>} />
-                  {/* <Route path="/albums" element={<Albums />} />
-                  <Route path="/songs" element={<Songs />} />
+                  <Route path="/albums" element={<Albums accessToken={accessToken} />} />
+                  {/* <Route path="/songs" element={<Songs />} />
                   <Route path="/artists" element={<Artists />} /> */}
                 </Routes>
               )}

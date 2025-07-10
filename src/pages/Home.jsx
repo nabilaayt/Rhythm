@@ -27,21 +27,19 @@ const Home = ({ accessToken }) => {
                 "Charlie Puth", 
                 "Gracie Abrams"
             ];
-            const allAlbums = [];
 
-            for (const name of artistNames) {
-                const artistID = await searchArtist(name, accessToken);
-                const albums = await albumsArtist(artistID, accessToken);
-
-                if(albums && albums.length > 0 ){
-                    allAlbums.push({
+            const allAlbums = await Promise.all(
+                artistNames.map(async (name) => {
+                    const artistID = await searchArtist(name, accessToken);
+                    const albums = await albumsArtist(artistID, accessToken);
+                    return {
                         artist: name,
                         albums: albums.slice(0,1),
-                    });
-                }
-            }
+                    };
+                })
+            );
 
-            // Array albums
+            // Penggabungan semua albums dalam 1 Array (flatMap)
             const flatAlbums = allAlbums.flatMap(item => item.albums);
             setRecomendedAlbums(flatAlbums.slice(0,4));
         } catch (error) {
