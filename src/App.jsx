@@ -9,6 +9,8 @@ import { getAccessToken } from "./services/api";
 // Pages
 import Home from "./pages/Home";
 import Albums from "./pages/Albums";
+import Song from "./pages/Song";
+import Artists from "./pages/Artists";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
@@ -57,8 +59,8 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home accessToken={accessToken}/>} />
                   <Route path="/albums" element={<Albums accessToken={accessToken} />} />
-                  {/* <Route path="/songs" element={<Songs />} />
-                  <Route path="/artists" element={<Artists />} /> */}
+                  <Route path="/songs" element={<Song accessToken={accessToken} />} />
+                  <Route path="/artists" element={<Artists accessToken={accessToken} />} />
                 </Routes>
               )}
             </div>
