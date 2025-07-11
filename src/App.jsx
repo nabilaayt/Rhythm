@@ -1,10 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+// Server/Api
+import { getAccessToken } from "./services/api";
+
+// Components
 import Sidebar from "./components/Sidebar";
 import TopBar from "./components/Topbar";
 import AlbumList from "./components/AlbumList";
 import TrackList from "./components/TrackList";
-import { getAccessToken } from "./services/api";
 
 // Pages
 import Home from "./pages/Home";
