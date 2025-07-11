@@ -4,6 +4,7 @@ import AlbumList from "../components/AlbumList";
 
 const Albums = ({ accessToken }) => {
     const [oldAlbums, setOldAlbums] = useState([]);
+    const [boostAlbums, setboostAlbums] = useState([]);
 
     // Album lama
     const handleThrowbackAlbums = async () => {
@@ -31,12 +32,42 @@ const Albums = ({ accessToken }) => {
                 setOldAlbums(flatAlbums.slice(0,4));
             } catch (error) {
                 console.log(error.message);
-            }
-        };
+        }
+    };
+
+    // Moods albums
+    const handleBoostAlbums = async () => {
+        try {
+            const artistNames = [
+                "Dua Lipa",
+                "Bruno Mars",
+                "Harry Styles", 
+                "Coldplay"
+            ];
+    
+            const allAlbums = await Promise.all(
+                artistNames.map(async (name) => {
+                    const artistID = await searchArtist(name, accessToken);
+                    const albums = await albumsArtist(artistID, accessToken);
+                        return {
+                            artist: name,
+                            albums: albums.slice(0,1),
+                        };
+                    })
+                );
+    
+                // Penggabungan semua albums dalam 1 Array (flatMap)
+                const flatAlbums = allAlbums.flatMap(item => item.albums);
+                setboostAlbums(flatAlbums.slice(0,4));
+            } catch (error) {
+                console.log(error.message);
+        }
+    };
     
     useEffect(() => {
         if(accessToken){
             handleThrowbackAlbums();
+            handleBoostAlbums();
         }
     }, [accessToken]);
 
@@ -57,6 +88,14 @@ const Albums = ({ accessToken }) => {
                 <h2 className="text-font-color1 text-2xl font-semibold mb-5">Throwback</h2>
                 {oldAlbums.length > 0 ? (
                     <AlbumList albums={oldAlbums} />
+                ) : (
+                    <p className="text-font-color2">Loading albums...</p>
+                )}
+            </div>
+            <div className="mb-10">
+                <h2 className="text-font-color1 text-2xl font-semibold mb-5">Mood Boosters</h2>
+                {boostAlbums.length > 0 ? (
+                    <AlbumList albums={boostAlbums} />
                 ) : (
                     <p className="text-font-color2">Loading albums...</p>
                 )}
