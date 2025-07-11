@@ -1,5 +1,4 @@
 const AlbumCardItem = ({ cover, title, artist }) => {
-
     return (
         <div className="flex flex-col p-4 mb-2 rounded-lg hover:bg-neutral-900 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
             <img src={cover} alt={title} className="w-full h-auto object-contain rounded-md mb-3"/>

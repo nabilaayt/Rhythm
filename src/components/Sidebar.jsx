@@ -56,19 +56,6 @@ const Sidebar = () => {
                         )}
                     </NavLink>
                 </li>
-                <li className="list-none block h-10 rounded-md mb-2 relative">
-                    <NavLink to={"/artists"} className= {({ isActive }) => `flex items-center h-full rounded-md transition-all duration-200 ${isActive ? "text-primary font-semibold" : "text-font-color2 hover:text-font-color1"}`}>
-                        {({ isActive }) => (
-                            <div className="relative flex items-center w-full gap-3">
-                                <img src={isActive ? "img/icons/ArtistActive.png" : "img/icons/ArtistDefault.png"} className="w-5 h-5" alt="artist"/>
-                                <span className={`${!open && "hidden"}`}>Artist</span>
-                                {isActive && open && (
-                                    <div className={`absolute top-0 bottom-0 right-57 w-1 rounded-e-lg bg-third transition-all duration-200 ${!open && "left-0"}`}></div>
-                                )}
-                            </div>
-                        )}
-                    </NavLink>
-                </li>
             </ul>
         </section>
     );

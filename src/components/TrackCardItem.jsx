@@ -1,5 +1,4 @@
 const TrackCardItem = ({ cover, title, artist, album, duration }) => { //komponen dgn props agar bisa dipakai berulangkali
-
     return (
         <div className="flex items-center sm:flex-row sm:items-center justify-between gap-4 p-4 py-3 mb-2 rounded-md hover:bg-neutral-900 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
             <div className="w-16 h-16 min-w-[64px]">

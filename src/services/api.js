@@ -16,21 +16,6 @@ export const getAccessToken = async () => {
     return data.access_token;
 };
 
-// Detail informasi artist
-export const artist = async (artistId, accessToken) => {
-    const artistParameters = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + accessToken
-        }
-    };
-
-    const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, artistParameters);
-    const data = await response.json();
-    return data;
-};
-
 // Mencari ID artist berdasarkan input
 export const searchArtist = async (searchInput, accessToken) => {
     const artistParameters = {
@@ -92,3 +77,18 @@ export const trackArtist = async (artistId, accessToken) => {
     const data = await response.json();
     return data.tracks;
 };
+
+// Detail informasi artist
+// export const artist = async (artistId, accessToken) => {
+//     const artistParameters = {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Authorization": "Bearer " + accessToken
+//         }
+//     };
+
+//     const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, artistParameters);
+//     const data = await response.json();
+//     return data;
+// };

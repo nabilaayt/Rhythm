@@ -1,17 +1,8 @@
 import SearchBar from "./SearchBar";
 
 const TopBar = ({ accessToken, searchInput, setSearchInput, setAlbums, setTrack }) => {
-
     return(
         <section id="topBar" className="flex items-center justify-between px-20 py-6">
-            {/* <div className="flex items-center gap-5">
-                <button className="rounded-full flex items-center justify-center w-14 h-14 bg-custom-secondary">
-                    <img src="/img/icons/ArrowLeftDefault.png" className="w-5 h-5" />
-                </button>
-                <button className="rounded-full flex items-center justify-center w-14 h-14 bg-custom-secondary">
-                    <img src="/img/icons/ArrowRightActive.png" className="w-5 h-5" />
-                </button>
-            </div> */}
             <SearchBar
                 accessToken={accessToken}
                 searchInput={searchInput}
