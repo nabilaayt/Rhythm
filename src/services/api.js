@@ -31,7 +31,7 @@ export const searchArtist = async (searchInput, accessToken) => {
     return data.artists?.items[0].id; // mengembalikan array artist index ke-0 hasil search dari spotify
 };
 
-// Track dari Artist
+// Mencari track
 export const searchTrack = async (searchInput, accessToken) => {
     const searchParams = {
         method: "GET",
